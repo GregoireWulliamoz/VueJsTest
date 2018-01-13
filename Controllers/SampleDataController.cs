@@ -1,15 +1,28 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+//  =============================================================================
+//  <copyright file="SampleDataController.cs" company="Help Us!">
+//      Copyright (c) Help Us! Chavornay SWITZERLAND.
+//  </copyright>
+//  ============================================================================
+//  
+//  Workfile: SampleDataController.cs
+//  
+//  PROJECT  : VueJsTest
+//  CREATION : 13.01.2018
+//  AUTHOR   : Grégoire Wulliamoz - grego
+// 
+//  ----------------------------------------------------------------------------
 
 namespace VueJsTest.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Microsoft.AspNetCore.Mvc;
+
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
-        private static string[] Summaries = new[]
+        private static readonly string[] Summaries =
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
@@ -32,13 +45,7 @@ namespace VueJsTest.Controllers
             public int TemperatureC { get; set; }
             public string Summary { get; set; }
 
-            public int TemperatureF
-            {
-                get
-                {
-                    return 32 + (int)(TemperatureC / 0.5556);
-                }
-            }
+            public int TemperatureF => 32 + (int) (TemperatureC / 0.5556);
         }
     }
 }
